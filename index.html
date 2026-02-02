@@ -1,13 +1,388 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Billobattle</title>
-    <link rel="stylesheet" href="modal.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billo Battle Zone - Premium Gaming Tournaments</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Welcome to Billobattle</h1>
-    <div id="payment-section">
-        <!-- Payment integration goes here -->
-    </div>
+    <!-- Particle Background -->
+    <canvas id="particleCanvas"></canvas>
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <div class="logo-glow"></div>
+                <h1 class="logo">BILLO<span class="logo-accent">BATTLE</span>ZONE</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active">Home</a>
+                <a href="#tournaments" class="nav-link">Tournaments</a>
+                <a href="#prizes" class="nav-link">Prizes</a>
+                <a href="#rules" class="nav-link">Rules</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="register.html" class="btn-register">Register</a>
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-pulse"></span>
+                <span class="badge-text">LIVE TOURNAMENTS</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">DOMINATE THE</span>
+                <span class="title-line title-highlight">BATTLEGROUND</span>
+            </h1>
+            <p class="hero-subtitle">Daily tournaments • Real prizes • Instant withdrawals</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">1,247</div>
+                    <div class="stat-label">Active Players</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">₹2.5L+</div>
+                    <div class="stat-label">Prize Pool</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Tournaments</div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="register.html" class="btn-primary">
+                    <span class="btn-text">START PLAYING</span>
+                    <span class="btn-glow"></span>
+                </a>
+                <a href="#tournaments" class="btn-secondary">
+                    <span class="btn-text">VIEW TOURNAMENTS</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-decoration">
+            <div class="deco-circle deco-1"></div>
+            <div class="deco-circle deco-2"></div>
+            <div class="deco-circle deco-3"></div>
+        </div>
+    </section>
+
+    <!-- Featured Games -->
+    <section class="games-section" id="tournaments">
+        <div class="section-header">
+            <h2 class="section-title">FEATURED <span class="text-glow">GAMES</span></h2>
+            <p class="section-subtitle">Choose your battlefield and dominate</p>
+        </div>
+        <div class="games-grid">
+            <!-- Free Fire -->
+            <div class="game-card" data-game="freefire">
+                <div class="game-card-bg"></div>
+                <div class="game-card-content">
+                    <div class="game-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="game-title">FREE FIRE</h3>
+                    <div class="game-stats">
+                        <div class="game-stat">
+                            <span class="stat-icon">👥</span>
+                            <span>245 Players</span>
+                        </div>
+                        <div class="game-stat">
+                            <span class="stat-icon">💰</span>
+                            <span>₹500 Pool</span>
+                        </div>
+                    </div>
+                    <div class="game-entry">
+                        <span class="entry-label">Entry Fee</span>
+                        <span class="entry-price">₹15</span>
+                    </div>
+                    <a href="tournaments.html?game=freefire" class="game-btn">
+                        <span>JOIN TOURNAMENT</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="game-card-glow"></div>
+            </div>
+
+            <!-- PUBG -->
+            <div class="game-card" data-game="pubg">
+                <div class="game-card-bg"></div>
+                <div class="game-card-content">
+                    <div class="game-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                            <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="game-title">PUBG MOBILE</h3>
+                    <div class="game-stats">
+                        <div class="game-stat">
+                            <span class="stat-icon">👥</span>
+                            <span>189 Players</span>
+                        </div>
+                        <div class="game-stat">
+                            <span class="stat-icon">💰</span>
+                            <span>₹800 Pool</span>
+                        </div>
+                    </div>
+                    <div class="game-entry">
+                        <span class="entry-label">Entry Fee</span>
+                        <span class="entry-price">₹20</span>
+                    </div>
+                    <a href="tournaments.html?game=pubg" class="game-btn">
+                        <span>JOIN TOURNAMENT</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="game-card-glow"></div>
+            </div>
+
+            <!-- Ludo -->
+            <div class="game-card" data-game="ludo">
+                <div class="game-card-bg"></div>
+                <div class="game-card-content">
+                    <div class="game-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
+                            <path d="M7 7h4v4H7zm6 0h4v4h-4zM7 13h4v4H7zm6 0h4v4h-4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="game-title">LUDO KING</h3>
+                    <div class="game-stats">
+                        <div class="game-stat">
+                            <span class="stat-icon">👥</span>
+                            <span>312 Players</span>
+                        </div>
+                        <div class="game-stat">
+                            <span class="stat-icon">💰</span>
+                            <span>₹400 Pool</span>
+                        </div>
+                    </div>
+                    <div class="game-entry">
+                        <span class="entry-label">Entry Fee</span>
+                        <span class="entry-price">₹10</span>
+                    </div>
+                    <a href="tournaments.html?game=ludo" class="game-btn">
+                        <span>JOIN TOURNAMENT</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="game-card-glow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Tournaments -->
+    <section class="live-tournaments">
+        <div class="section-header">
+            <h2 class="section-title">LIVE <span class="text-glow">TOURNAMENTS</span></h2>
+            <p class="section-subtitle">Join now and start winning</p>
+        </div>
+        <div class="tournament-list">
+            <!-- Tournament Item 1 -->
+            <div class="tournament-item">
+                <div class="tournament-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">LIVE NOW</span>
+                </div>
+                <div class="tournament-info">
+                    <h3 class="tournament-name">Free Fire - Squad Battle</h3>
+                    <div class="tournament-meta">
+                        <span class="meta-item">🕐 Starts in 15 mins</span>
+                        <span class="meta-item">👥 32/50 Players</span>
+                    </div>
+                </div>
+                <div class="tournament-prize">
+                    <div class="prize-label">Prize Pool</div>
+                    <div class="prize-amount">₹500</div>
+                </div>
+                <div class="tournament-entry">
+                    <div class="entry-fee">₹15</div>
+                    <a href="tournaments.html" class="tournament-join-btn">JOIN</a>
+                </div>
+            </div>
+
+            <!-- Tournament Item 2 -->
+            <div class="tournament-item">
+                <div class="tournament-status">
+                    <span class="status-dot status-upcoming"></span>
+                    <span class="status-text">UPCOMING</span>
+                </div>
+                <div class="tournament-info">
+                    <h3 class="tournament-name">PUBG - Classic Mode</h3>
+                    <div class="tournament-meta">
+                        <span class="meta-item">🕐 Starts in 45 mins</span>
+                        <span class="meta-item">👥 18/50 Players</span>
+                    </div>
+                </div>
+                <div class="tournament-prize">
+                    <div class="prize-label">Prize Pool</div>
+                    <div class="prize-amount">₹800</div>
+                </div>
+                <div class="tournament-entry">
+                    <div class="entry-fee">₹20</div>
+                    <a href="tournaments.html" class="tournament-join-btn">JOIN</a>
+                </div>
+            </div>
+
+            <!-- Tournament Item 3 -->
+            <div class="tournament-item">
+                <div class="tournament-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">LIVE NOW</span>
+                </div>
+                <div class="tournament-info">
+                    <h3 class="tournament-name">Ludo King - Quick Match</h3>
+                    <div class="tournament-meta">
+                        <span class="meta-item">🕐 Starts in 8 mins</span>
+                        <span class="meta-item">👥 45/50 Players</span>
+                    </div>
+                </div>
+                <div class="tournament-prize">
+                    <div class="prize-label">Prize Pool</div>
+                    <div class="prize-amount">₹400</div>
+                </div>
+                <div class="tournament-entry">
+                    <div class="entry-fee">₹10</div>
+                    <a href="tournaments.html" class="tournament-join-btn">JOIN</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="rules">
+        <div class="section-header">
+            <h2 class="section-title">HOW IT <span class="text-glow">WORKS</span></h2>
+            <p class="section-subtitle">Start winning in 3 simple steps</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">01</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+                <h3 class="step-title">Register & Recharge</h3>
+                <p class="step-description">Create your account and add funds to your wallet. Minimum recharge ₹50.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">02</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                </div>
+                <h3 class="step-title">Join Tournament</h3>
+                <p class="step-description">Choose your game and join any tournament. Entry fee deducted from wallet.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">03</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <h3 class="step-title">Win & Withdraw</h3>
+                <p class="step-description">Win prizes instantly credited to wallet. Withdraw anytime, minimum ₹100.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prize Section -->
+    <section class="prizes-section" id="prizes">
+        <div class="section-header">
+            <h2 class="section-title">TODAY'S <span class="text-glow">PRIZES</span></h2>
+            <p class="section-subtitle">Real money, instant withdrawals</p>
+        </div>
+        <div class="prizes-grid">
+            <div class="prize-card">
+                <div class="prize-rank">🥇</div>
+                <div class="prize-position">1st Place</div>
+                <div class="prize-value">₹150 - ₹300</div>
+                <div class="prize-games">Free Fire • PUBG</div>
+            </div>
+            <div class="prize-card">
+                <div class="prize-rank">🥈</div>
+                <div class="prize-position">2nd Place</div>
+                <div class="prize-value">₹80 - ₹150</div>
+                <div class="prize-games">All Games</div>
+            </div>
+            <div class="prize-card">
+                <div class="prize-rank">🥉</div>
+                <div class="prize-position">3rd Place</div>
+                <div class="prize-value">₹40 - ₹100</div>
+                <div class="prize-games">All Games</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2 class="footer-logo">BILLO<span>BATTLE</span>HUB</h2>
+                <p class="footer-tagline">India's #1 Gaming Tournament Platform</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <a href="#tournaments">Tournaments</a>
+                    <a href="#prizes">Prizes</a>
+                    <a href="#rules">How It Works</a>
+                    <a href="dashboard.html">Dashboard</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Games</h4>
+                    <a href="#">Free Fire</a>
+                    <a href="#">PUBG Mobile</a>
+                    <a href="#">Ludo King</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 BilloBattleHub. All rights reserved.</p>
+            <p class="footer-note">Play responsibly • 18+ only • Skill-based gaming platform</p>
+        </div>
+    </footer>
+
+    <script src="particles.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
