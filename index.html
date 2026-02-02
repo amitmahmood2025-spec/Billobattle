@@ -1,107 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BilloBattleHub - Premium Gaming Tournaments</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Billobattle</title>
     <link rel="stylesheet" href="modal.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Particle Background -->
-    <canvas id="particleCanvas"></canvas>
-    
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo-container">
-                <div class="logo-glow"></div>
-                <h1 class="logo">BILLO<span class="logo-accent">BATTLE</span>HUB</h1>
-            </div>
-            <div class="nav-links">
-                <a href="#" class="nav-link active">Home</a>
-                <a href="#tournaments" class="nav-link">Tournaments</a>
-                <a href="#prizes" class="nav-link">Prizes</a>
-                <a href="#rules" class="nav-link">Rules</a>
-                <a href="dashboard.html" class="nav-link">Dashboard</a>
-            </div>
-            <div class="nav-buttons">
-                <a href="login.html" class="btn-login">Login</a>
-                <a href="register.html" class="btn-register">Register</a>
-            </div>
-            <div class="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-grid"></div>
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span class="badge-pulse"></span>
-                <span class="badge-text">LIVE TOURNAMENTS</span>
-            </div>
-            <h1 class="hero-title">
-                <span class="title-line">DOMINATE THE</span>
-                <span class="title-line title-highlight">BATTLEGROUND</span>
-            </h1>
-            <p class="hero-subtitle">Daily tournaments • Real prizes • Instant withdrawals</p>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <div class="stat-number">1,247</div>
-                    <div class="stat-label">Active Players</div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <div class="stat-number">₹2.5L+</div>
-                    <div class="stat-label">Prize Pool</div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Tournaments</div>
-                </div>
-            </div>
-            <div class="hero-buttons">
-                <a href="register.html" class="btn-primary">
-                    <span class="btn-text">START PLAYING</span>
-                    <span class="btn-glow"></span>
-                </a>
-                <a href="#tournaments" class="btn-secondary">
-                    <span class="btn-text">VIEW TOURNAMENTS</span>
-                </a>
-            </div>
-        </div>
-        <div class="hero-decoration">
-            <div class="deco-circle deco-1"></div>
-            <div class="deco-circle deco-2"></div>
-            <div class="deco-circle deco-3"></div>
-        </div>
-    </section>
-
-    <!-- (rest of the original HTML unchanged - truncated here for brevity in this commit representation) -->
-
-    <!-- Hidden Netlify form (for Netlify to detect fields and enable file uploads) -->
-    <form name="recharge-request" data-netlify="true" netlify-honeypot="bot-field" hidden>
-      <input type="hidden" name="form-name" value="recharge-request">
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <input type="text" name="payment_method" />
-      <input type="text" name="amount" />
-      <input type="text" name="sender_number" />
-      <input type="text" name="transaction_id" />
-      <input type="file" name="screenshots[]" />
-      <input type="text" name="bot-field" />
-    </form>
-
-    <script src="particles.js"></script>
+    <h1>Welcome to Billobattle</h1>
+    <div id="payment-section">
+        <!-- Payment integration goes here -->
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
