@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Billo Battle Zone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    
+    <!-- Admin Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <h2>ADMIN<span>PANEL</span></h2>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">Billo Battle Zone</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#overview" class="nav-item active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"/>
+                    <rect x="14" y="3" width="7" height="7"/>
+                    <rect x="14" y="14" width="7" height="7"/>
+                    <rect x="3" y="14" width="7" height="7"/>
+                </svg>
+                <span>Overview</span>
+            </a>
+            <a href="#tournaments" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                    <path d="M4 22h16"/>
+                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                </svg>
+                <span>Tournaments</span>
+            </a>
+            <a href="#recharge-requests" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
+                    <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/>
+                    <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/>
+                </svg>
+                <span>Recharge Requests</span>
+                <span class="badge" id="rechargeBadge">0</span>
+            </a>
+            <a href="#withdraw-requests" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="1" x2="12" y2="23"/>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+                <span>Withdraw Requests</span>
+                <span class="badge" id="withdrawBadge">0</span>
+            </a>
+            <a href="#users" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                <span>Users</span>
+            </a>
+            <a href="#settings" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M12 1v6m0 6v6m9-9h-6m-6 0H3"/>
+                </svg>
+                <span>Settings</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="logout-btn" onclick="window.location.href='dashboard.html'">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                    <polyline points="16 17 21 12 16 7"/>
+                    <line x1="21" y1="12" x2="9" y2="12"/>
+                </svg>
+                <span>Back to Site</span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="top-bar-user">
+                <div class="admin-badge">
+                    <span>👑 ADMIN</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Overview Section -->
+        <section id="overview" class="content-section active">
+            <h1 class="section-title">Admin Dashboard</h1>
+            
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon wallet-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Total Users</div>
+                        <div class="stat-value" id="totalUsers">0</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon tournaments-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Active Tournaments</div>
+                        <div class="stat-value" id="activeTournaments">0</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon earnings-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Total Revenue</div>
+                        <div class="stat-value" id="totalRevenue">৳0</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon wins-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Pending Requests</div>
+                        <div class="stat-value" id="pendingRequests">0</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Activity -->
+            <div class="recent-activity">
+                <h2 class="subsection-title">Recent Activity</h2>
+                <div id="activityList" class="activity-list"></div>
+            </div>
+        </section>
+        
+        <!-- Tournaments Section -->
+        <section id="tournaments" class="content-section">
+            <div class="section-header-with-btn">
+                <h1 class="section-title">Manage Tournaments</h1>
+                <button class="btn-primary" onclick="openCreateTournamentModal()">
+                    + Create New Tournament
+                </button>
+            </div>
+            
+            <div id="tournamentsList" class="tournaments-list"></div>
+        </section>
+        
+        <!-- Recharge Requests Section -->
+        <section id="recharge-requests" class="content-section">
+            <h1 class="section-title">Recharge Requests</h1>
+            <div id="rechargeRequestsList" class="requests-list"></div>
+        </section>
+        
+        <!-- Withdraw Requests Section -->
+        <section id="withdraw-requests" class="content-section">
+            <h1 class="section-title">Withdraw Requests</h1>
+            <div id="withdrawRequestsList" class="requests-list"></div>
+        </section>
+        
+        <!-- Users Section -->
+        <section id="users" class="content-section">
+            <h1 class="section-title">Manage Users</h1>
+            <div id="usersList" class="users-list"></div>
+        </section>
+        
+        <!-- Settings Section -->
+        <section id="settings" class="content-section">
+            <h1 class="section-title">Platform Settings</h1>
+            
+            <div class="settings-container">
+                <div class="settings-card">
+                    <h3>Payment Numbers</h3>
+                    <div class="form-group">
+                        <label>bKash Number</label>
+                        <input type="tel" id="bkashNumber" placeholder="01XXXXXXXXX" value="01XXXXXXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label>Nagad Number</label>
+                        <input type="tel" id="nagadNumber" placeholder="01XXXXXXXXX" value="01XXXXXXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label>Rocket Number</label>
+                        <input type="tel" id="rocketNumber" placeholder="01XXXXXXXXX" value="01XXXXXXXXX">
+                    </div>
+                    <button class="save-settings-btn" onclick="savePaymentNumbers()">Save Payment Numbers</button>
+                </div>
+                
+                <div class="settings-card">
+                    <h3>Platform Limits</h3>
+                    <div class="form-group">
+                        <label>Minimum Recharge (৳)</label>
+                        <input type="number" id="minRecharge" value="50">
+                    </div>
+                    <div class="form-group">
+                        <label>Minimum Withdraw (৳)</label>
+                        <input type="number" id="minWithdraw" value="100">
+                    </div>
+                    <button class="save-settings-btn" onclick="savePlatformLimits()">Save Limits</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    
+    <script src="firebase-config.js"></script>
+    <script src="particles.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
