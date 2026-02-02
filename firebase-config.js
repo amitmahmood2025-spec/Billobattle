@@ -1,16 +1,27 @@
 // Firebase Configuration Template
 // Replace these values with your actual Firebase project credentials
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID",
-    databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com"
+  apiKey: "AIzaSyATQiZKadnZ5-sdZun4HMf6PQv9cPGp64k",
+  authDomain: "billobattlehub.firebaseapp.com",
+  projectId: "billobattlehub",
+  storageBucket: "billobattlehub.firebasestorage.app",
+  messagingSenderId: "1077370113383",
+  appId: "1:1077370113383:web:ea7adbd8175f3cc13eb3c2",
+  measurementId: "G-HZ0T6F5X7P"
 };
 
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
